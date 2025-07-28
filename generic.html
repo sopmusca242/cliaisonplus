@@ -1,0 +1,216 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>CliaisonPlusConsulting</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="index.html"><img src="images/ico.jpg" alt="" style="max-width: 100%; height: auto;" /></a>
+									<ul class="icons">
+										<li><a href="https://www.facebook.com/share/1B4KDNrUP6/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/cliaisonplus" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://wa.me/242067553626" target="_blank" rel="noopener noreferrer" class="icon brands fa-whatsapp"><span class="label">Whatsapp</span></a></li>
+									</ul>
+								</header>
+								
+							<!-- Content -->
+								<section class="content">
+									
+									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<header class="major">
+										<h2>Contacter</h2>
+									</header>
+
+									
+									
+									<h2>Votre partenaire de confiance pour tous vos besoins juridiques, fiscaux et financiers</h2>
+									<p>Vous avez des questions ? Un projet à concrétiser ? Notre équipe d'experts est à votre disposition pour vous accompagner dans toutes vos démarches. Que vous soyez un particulier, une entreprise ou une organisation, nous mettons notre expertise à votre service.</p>
+									
+									<hr class="major" />
+									<h2>Nos Coordonnées</h2>
+
+									<h3>Téléphone</h3>
+									<a href="tel:242067553626">+242 06 755 36 26</a> 
+									<a href="tel:242056332898">+242 05 633 28 98</a>
+									<p>Nos lignes sont ouvertes du lundi au vendredi de 8h00 à 17h00. Pour les urgences, laissez-nous un message et nous vous rappellerons rapidement.</p>
+									
+									<hr class="major" />
+									<h3>Adresse</h3>
+									<a href="https://maps.app.goo.gl/smkL4SFw6PAo5z2s8">101. Av. Lamoth CCF-Centre-Ville, Brazzaville, République du Congo </a>
+									<p>Notre cabinet est idéalement situé au cœur de Brazzaville, facilement accessible en transport public ou en véhicule personnel. Un parking est disponible à proximité.</p>
+									
+									<hr class="major" />
+									<h3>E-mail</h3>
+									<p> N'hésitez pas à nous écrire pour toute demande d'information, devis ou prise de rendez-vous. Nous nous engageons à vous répondre dans les plus brefs délais.</p>
+									<h4>Envoyez-nous un message</h4>
+    								<section>
+    								<form id="contactForm" autocomplete="on"> <!-- Ajout d'un ID pour JS, suppression de action et method -->
+        								<div>
+            								<label for="name">Nom <span aria-hidden="true">*</span></label>
+            								<input type="text" id="name" name="name" required placeholder="Votre nom">
+            								<p></p>
+        								</div>
+        								<div>
+											<label for="email">E-mail <span aria-hidden="true">*</span></label>
+											<input type="email" id="email" name="email" required placeholder="votre@email.com">
+        									<p></p>
+        								</div>
+										<div>
+											<label for="phone">Téléphone</label>
+											<input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+											<p></p>
+										</div>
+										<div>
+											<label for="subject">Sujet <span aria-hidden="true">*</span></label>
+											<input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
+											<p></p>
+										</div>
+										<div>
+											<label for="message">Message <span aria-hidden="true">*</span></label>
+											<textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+											<p></p>
+										</div>
+										<div>
+											<button type="submit">Envoyer</button>
+										</div>
+									</form>
+								</section>
+
+								<!-- Ajoutez ce script JS juste avant la balise </body> de votre page HTML -->
+								<script>
+									document.getElementById('contactForm').addEventListener('submit', function(event) {
+										event.preventDefault(); // Empêche le submit par défaut
+
+										// Récupérer les valeurs saisies
+										const name = document.getElementById('name').value.trim();
+										const email = document.getElementById('email').value.trim();
+										const phone = document.getElementById('phone').value.trim();
+										const subject = document.getElementById('subject').value.trim();
+										const message = document.getElementById('message').value.trim();
+
+										// Validation simple (champs requis)
+										if (!name || !email || !subject || !message) {
+											alert('Veuillez remplir tous les champs requis (Nom, E-mail, Sujet, Message).');
+											return;
+										}
+										if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+											alert('Veuillez entrer un email valide.');
+											return;
+										}
+
+										// Construire le corps de l'email (encodé pour URL)
+										const emailBody = encodeURIComponent(
+											`Nom: ${name}\n` +
+											`Email: ${email}\n` +
+											`Téléphone: ${phone}\n` +
+											`Sujet: ${subject}\n` +
+											`Message:\n${message}\n\n` +
+											`Envoyé depuis le formulaire de contact (Contexte: République du Congo)`
+										);
+
+										// Destinataire (remplacez par l'email réel de votre agence)
+										const toEmail = 'cg.cliaisonplusconsulting@gmail.com';
+
+										// Construire l'URL mailto
+										const mailtoLink = `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+										// Ouvrir le client email
+										window.location.href = mailtoLink;
+
+										// Optionnel : Afficher un message de confirmation
+										alert('Votre client email va s\'ouvrir avec un message pré-rempli. Vérifiez et envoyez-le !');
+									});
+								</script>	
+							</section>
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>CABINET LIAISON PLUS</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">ACCUEIL</a></li>
+										<li><a href="business.html">PRESTATIONS</a></li>
+										<li><a href="generic.html">CONTACTER</a></li>
+										<li><a href="elements.html">A PROPOS</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>SERVICES</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic7.jpg" alt="" /></a>
+											<h2>Expertise Fiscal</h2>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic8.jpg" alt="" /></a>
+											<h2>Expertise financière</h2>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic9.jpg" alt="" /></a>
+											<h2>Expertise juridique</h2>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="business.html" class="button">En savoir plus</a></li>
+									</ul>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Contactez-nous</h2>
+									</header>
+									<p>Vous souhaitez optimiser la gestion de vos finances, bénéficier de conseils fiscaux avisés ou d’un accompagnement juridique adapté à vos besoins ? Notre équipe d’experts est à votre écoute pour répondre à toutes vos questions et vous accompagner dans vos démarches.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="generic.html">cg.cliaisonplusconsulting@gmail.com</a></li>
+										<li class="icon solid fa-phone"><a href="tel:067553626">06 755 36 26 / </a> <a href="tel:056332898"></a>05 633 28 98</a></li>
+										<li class="icon solid fa-home"><a href="https://maps.app.goo.gl/smkL4SFw6PAo5z2s8">101.Av. lamoth CCF-Centre-Ville <br />/ Brazzaville, République du Congo</a></li>
+									</ul>
+									
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">© 2025  CliaisonPlusConsulting. Tous droits réservés.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
